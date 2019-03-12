@@ -1,2 +1,2 @@
 # fission
-基于SpringCloud的分布式分销系统
+基于SpringCloud的微服务分销系统
