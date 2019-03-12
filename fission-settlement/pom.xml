@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>fission-core</artifactId>
+    <artifactId>fission-settlement</artifactId>
 
     <dependencies>
         <dependency>
@@ -29,10 +29,9 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>william.fission.FissionRegistryApplication</mainClass>
+                    <mainClass>william.fission.FissionSettlementApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 </project>

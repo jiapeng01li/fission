@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="william.fission.mapper.FissionMaterielMapper">
+
+    <resultMap id="BaseResultMap" type="william.fission.entity.FissionMaterielEntity">
+        <id column="id" property="id"/>
+        <result property="title" column="title"/>
+        <result property="originPosterUrl" column="origin_poster_url"/>
+        <result property="landingPageUrl" column="landing_page_url"/>
+        <result property="startTime" column="start_time"/>
+        <result property="stopTime" column="stop_time"/>
+        <result property="status" column="status"/>
+        <result property="materielType" column="materiel_type"/>
+        <result property="displayType" column="display_type"/>
+        <result property="settlementType" column="settlement_type"/>
+        <result property="items" column="items"/>
+        <result property="extra" column="extra"/>
+        <result property="skuId" column="sku_id"/>
+        <result property="rewardCountLimit" column="reward_count_limit"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="updatedAt" column="updated_at"/>
+    </resultMap>
+
+
+    <sql id="BaseColumn">
+        id,title,origin_poster_url,landing_page_url,start_time,stop_time,
+        status,materiel_type,display_type,settlement_type,items,extra,
+        sku_id,reward_count_limit,created_at,updated_at
+    </sql>
+
+    <sql id="TableName">
+        fission_materiel
+    </sql>
+
+    <select id="page" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from
+        <include refid="TableName"/>
+        limit #{offset},#{limit}
+    </select>
+
+    <select id="listBySkuId" resultMap="BaseResultMap">
+        select
+        <include refid="BaseColumn"/>
+        from
+        <include refid="TableName"/>
+        where sku_id = #{skuId}
+    </select>
+
+    <select id="count" resultType="int">
+        select count(id)
+        from
+        <include refid="TableName"/>
+    </select>
+
+</mapper>
